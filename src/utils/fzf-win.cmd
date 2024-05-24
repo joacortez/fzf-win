@@ -1,10 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set CALLER_CWD=%CD%
-set CURRENT_DIR=%~dp0   
-call %~dp0fzf-win.cfg
-set LOGGER=%~dp0logger.cmd
+set CALLER_CWD="%CD%"
+set CURRENT_DIR="%~dp0"
+
+for /F "usebackq tokens=1,2 delims=," %%i in ("%~dp0fzf-win.cfg") do (
+    set "%%i=%%j"
+)
+
+set LOGGER="%~dp0logger.cmd"
 set LOG=call %LOGGER%
 
 :: get the cli command from the first argument ::
@@ -22,7 +26,7 @@ REM TODO set custom paths
 REM TODO add start command
 
 :: Read the configuration file and populate the command mappings
-for /f "tokens=1,2 delims==" %%A in (%config_file%) do (
+for /f "usebackq tokens=1,2 delims==" %%A in (%config_file%) do (
     if "%%B" == "" (
         set "command_mapping[%%B]=%%A"
         %LOG% mapping %%A to %%B
@@ -67,6 +71,8 @@ for /f "delims=" %%i in ('git rev-parse --is-inside-work-tree 2^> NUL') do (
         set get_files_command=!all_files_command!
         goto fzf_step
     )
+    endlocal
+    @REM TODO log error
     exit /b -1
 )
 %LOG% is not a git repository
@@ -112,8 +118,11 @@ set "full_command=!get_files_command! ^| !fzf_command!"
 %LOG% action_prefix: %action_prefix%
 
 if "!full_command!" == "" (
+    @REM TODO log error
     %LOG% full command is empty
-    exit /b
+
+    endlocal
+    exit /b -1
 )
 
 
@@ -122,11 +131,10 @@ REM TODO show relative paths in fzf
 if "%DEBUG_MODE%" == "1" (
     %LOG% executing full command: "!full_command!"
 
-    exit /b 0
+    goto :EOF
 )
 
 for /f "delims=" %%i in ('!full_command!') do (
-    @REM endlocal
     set "result=%%i"
 
     if "%include_line_number%" == "1" (
@@ -135,7 +143,8 @@ for /f "delims=" %%i in ('!full_command!') do (
         goto :process_without_line
     )
 
-    echo no mans land
+    endlocal
+    exit /b -1
 )
 
     :process_with_line
@@ -163,7 +172,7 @@ for /f "delims=" %%i in ('!full_command!') do (
 
     goto :process_action
 
-    exit /b
+    goto :EOF
     )
 
 :process_without_line
@@ -177,9 +186,10 @@ for /f "delims=" %%i in ('!full_command!') do (
 set full_action=!action_prefix! "!file!" !action_suffix!
 %LOG% Excuting action "!full_action!"
 
-!full_action!
-
-exit /b
+endlocal & set "action=%full_action%"
+%action%
 
 :EOF
+endlocal
+exit /b
 

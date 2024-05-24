@@ -4,8 +4,8 @@ set all_files_command=dir /ad /b /s
 set usage_message="Usage: fd [command]"
 set fzf_preview_command=tree {}
 
-set config_file=%~dp0\helpers\fd.cfg
+set config_file="%~dp0\utils\fd.cfg"
 
 REM call fzf command and pass all arguments
-call %~dp0\helpers\fzf_command.cmd %*   
+call "%~dp0\utils\fzf-win.cmd" %*   
 exit /b 0

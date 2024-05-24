@@ -6,8 +6,8 @@ set fzf_preview_command=bat --style=numbers --color=always --highlight-line {2} 
 set fzf_delimiter=:
 
 set "include_line_number=1"
-set config_file=%~dp0\helpers\fl.cfg
+set config_file="%~dp0\utils\fl.cfg"
 
 REM call fzf command and pass all arguments
-call %~dp0\helpers\fzf_command.cmd %*   
+call "%~dp0\utils\fzf-win.cmd" %*   
 exit /b 0
