@@ -1,0 +1,41 @@
+name: Windows Installers Creation and Publication
+
+on: 
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  create-windows-installers:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Windows Installers 
+        run: .\build.bat
+        shell: cmd
+
+      - name: Upload installers as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fzf-win installers
+          path: build/**/*.msi
+
+      - name: Publish as Release
+        uses: softprops/action-gh-release@v1
+        with:
+          # NOTE why does github token not work?
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          tag_name: 'v0.0.2'
+          name: 'fzf-win v0.0.2'
+          files: build/**/*.msi
+          body: |
+            This is a pre-release of fzf-win
+            It may contain bugs and is not recommended for production use.
+            To report bugs, please report them [here](https://github.com/joacortez/fzf-win/issues/new) or send an email to [joacortez@outlook.com](mailto:joacortez@outlook.com)
+          draft: false
+          prerelease: true
