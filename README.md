@@ -18,14 +18,14 @@
 It offers an easy way to search and open files, directories, and even search file content from any shell.
 Designed with simplicity and efficiency in mind, `fzf-win` transforms the way you navigate files on Windows.
 
-What sets `fzf-win` apart is its easily customizable commands for actions you perform often. It comes preconfigured with commands to open Visual Studio Code, Vim, Windows File Explorer, and more, saving you time and keystrokes. 
+What sets `fzf-win` apart is its easily customizable commands for actions you perform often. It comes pre-configured with commands to open Visual Studio Code, Vim, Windows File Explorer, and more, saving you time and keystrokes. 
 
 So why wait? Start exploring `fzf-win` today and discover a better way to navigate your files! 🚀
 
 
 ## Installation 📥
 
-Getting started with `fzf-win` is easy! You can either download the latest installer from our [releases page](https://github.com/joacortez/fzf-win/releases) or directly from this [link](https://github.com/joacortez/fzf-win/releases/download/v1.0.0/fzf-win_v1.0.0_x86_Windows.msi) 📦.
+Getting started with `fzf-win` is easy! You can either download the latest installer from our [releases page](https://github.com/joacortez/fzf-win/releases) or directly from this [link](https://github.com/joacortez/fzf-win/releases/download/v0.0.2/fzf-win_v0.0.2_x86_Windows.msi) 📦.
 
 For the DIY enthusiasts out there, you can also clone the repo and use `build.bat` to build the installer yourself. No compilation is needed, just add the `src` directory to your path and you're good to go! 🛠️
 
@@ -131,7 +131,7 @@ The default command is the one that will be executed if no command is specified 
 ### Path to dependencies 🗂️
 
 If don't want to add the needed dependencies to the PATH or are having issues with them, you can specify the path to the installation directory for each dependency. 
-Run `ff --health` to check if the dependencies are acessible and check the config file is to update it if needed.
+Run `ff --health` to check if the dependencies are accessible and check the config file is to update it if needed.
 In fzf-win.cfg update the following part with your paths
 
 ```cfg
