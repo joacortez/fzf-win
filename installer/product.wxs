@@ -12,7 +12,7 @@
 
    <Product Id="*" UpgradeCode="4641175c-6f66-4b0a-8f1a-940ee711444f"
             Name="fzf-win"
-            Version="0.0.2"
+            Version="1.0.0"
             Manufacturer="Joaquin Cortez"
             Language="1033">
 
@@ -21,8 +21,8 @@
       <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
 
       <Upgrade Id="4641175c-6f66-4b0a-8f1a-940ee711444f">
-         <UpgradeVersion Minimum="0.0.2" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
-         <UpgradeVersion Minimum="0.0.0" Maximum="0.0.2" IncludeMinimum="yes" IncludeMaximum="no"
+         <UpgradeVersion Minimum="1.0.0" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+         <UpgradeVersion Minimum="0.0.0" Maximum="1.0.0" IncludeMinimum="yes" IncludeMaximum="no"
                          Property="OLDERVERSIONBEINGUPGRADED"/>
       </Upgrade>
       <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>

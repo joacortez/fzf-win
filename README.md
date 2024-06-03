@@ -25,7 +25,7 @@ So why wait? Start exploring `fzf-win` today and discover a better way to naviga
 
 ## Installation 📥
 
-Getting started with `fzf-win` is easy! You can either download the latest installer from our [releases page](https://github.com/joacortez/fzf-win/releases) or directly from this [link](https://github.com/joacortez/fzf-win/releases/download/v0.0.2/fzf-win_v0.0.2_x86_Windows.msi) 📦.
+Getting started with `fzf-win` is easy! You can either download the latest installer from our [releases page](https://github.com/joacortez/fzf-win/releases) or directly from this [link](https://github.com/joacortez/fzf-win/releases/download/v1.0.0/fzf-win_v1.0.0_x86_Windows.msi) 📦.
 
 For the DIY enthusiasts out there, you can also clone the repo and use `build.bat` to build the installer yourself. No compilation is needed, just add the `src` directory to your path and you're good to go! 🛠️
 

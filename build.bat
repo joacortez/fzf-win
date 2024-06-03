@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: Set common variables
-set "version=v0.0.2"
+set "version=v1.0.0"
 set "platform=Windows"
 set "installerdir=installer\"
 set "builddir=build\"
