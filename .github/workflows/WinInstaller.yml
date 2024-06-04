@@ -26,6 +26,7 @@ jobs:
           path: build/**/*.msi
 
       - name: Publish as Release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
           # NOTE why does github token not work?
