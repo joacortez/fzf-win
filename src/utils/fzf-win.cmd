@@ -75,7 +75,7 @@ if "!IS_DIR!" == "1" (
     if "%DISABLE_GIT" == "1" (
         set "list_command=dir /ad /b /s"
     ) else (
-        set "list_command=!dependency_mapping[git] ls-tree -d -r --name-only HEAD"
+        set "list_command=!dependency_mapping[git]! ls-tree -d -r --name-only HEAD"
     )
 
 ) else (
@@ -94,7 +94,6 @@ if "!IS_DIR!" == "1" (
     )
 
     if not "!DELIMITER!" == "" (
-        echo setting delhe
         set "list_command=!list_command! --field-match-separator !DELIMITER!"
     )
 
@@ -153,7 +152,6 @@ if not "!IS_DIR!" == "1" (
 
 if "!USE_ANSI!" == "1" (
     %LOG% enabling fzf ansi color parsing
-    echo setting ansi
     set fzf_command=!fzf_command! --ansi
 )
 
@@ -163,8 +161,6 @@ if not "!preview_command!" == "" (
 )
 
 set "full_command=!list_command! ^| !fzf_command!"
-
-echo "!full_command!"
 
 %LOG% get files command: "!list_command!"
 %LOG% fzf command: "!fzf_command!"
@@ -266,7 +262,7 @@ goto :EOF
 
 :: print the current version ::
 :version
-echo fzf-win version: 0.0.2
+echo fzf-win version: 1.0.0
 goto :EOF
 
 :: Run custom one-time command ::
