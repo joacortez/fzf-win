@@ -14,7 +14,7 @@
       Name="fzf-win"
       Version="1.0.0"
       Manufacturer="Joaquin Cortez"
-      Language="1033">
+      Language="1033" >
 
       <Package InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"
          InstallScope="perMachine" />
@@ -65,24 +65,6 @@
 
          </Component>
 
-
-        <Component Id="AppInstallationRegistry" Guid="4ddb44ef-9e31-4183-88e9-221d1547e251">
-            <RegistryKey Root="HKCU" Key="Software\joacortez\fzf-win">
-                <RegistryValue Name="installed0" Type="integer" Value="1" KeyPath="yes"/>
-                <RegistryValue Name="DisplayName" Type="string" Value="fzf-win"/>
-                <RegistryValue Name="DisplayVersion" Type="string" Value="1.0.0"/>
-                <RegistryValue Name="Publisher" Type="string" Value="Joaquin Cortez"/>
-                <RegistryValue Name="InstallLocation" Type="string" Value="[INSTALLFOLDER]"/>
-            </RegistryKey>
-            <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\fzf-win">
-                <RegistryValue Name="DisplayName" Type="string" Value="fzf-win"/>
-                <RegistryValue Name="DisplayVersion" Type="string" Value="1.0.0"/>
-                <RegistryValue Name="Publisher" Type="string" Value="Joaquin Cortez"/>
-                <RegistryValue Name="InstallLocation" Type="string" Value="[INSTALLFOLDER]"/>
-            </RegistryKey>
-        </Component>
-
-
       </Directory>
 
 
@@ -98,8 +80,6 @@
 
          <ComponentRef Id="MAINFILES" />
          <ComponentRef Id="UTILSFILES" />
-         <ComponentRef Id="AppInstallationRegistry" />
-
 
       </Feature>
 
