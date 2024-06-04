@@ -1,4 +1,0 @@
-setting delhe
-setting ansi
-"rg --ignore --color=always --field-match-separator : --files | fzf --delimiter : --ansi --preview "bat --style=numbers --color=always {} ""
-"utils\fzf-win.cfg" 
