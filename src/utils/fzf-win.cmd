@@ -71,13 +71,7 @@ if "!action_prefix!" == "cd /D" (
 set "list_command="
 
 if "!IS_DIR!" == "1" (
-
-    if "%DISABLE_GIT" == "1" (
-        set "list_command=dir /ad /b /s"
-    ) else (
-        set "list_command=!dependency_mapping[git]! ls-tree -d -r --name-only HEAD"
-    )
-
+    set "list_command=dir /ad /b /s"
 ) else (
     set "list_command=!dependency_mapping[rg]!"
 
